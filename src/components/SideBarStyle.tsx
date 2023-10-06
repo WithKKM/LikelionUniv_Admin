@@ -80,7 +80,7 @@ export const OpenSideBar = styled.header`
         /* Links principais do app */
         nav {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             flex-direction: column;
             margin-left: 12px;
 
@@ -110,7 +110,6 @@ export const OpenSideBar = styled.header`
                 text-align: left;
                 display: flex;
                 flex-direction: column;
-                margin-left: 50px;
 
                 .MainLink {
                     transition: background 0.3s;
@@ -147,7 +146,6 @@ export const OpenSideBar = styled.header`
                     color: inherit;
 
                     padding: 5px 5px;
-                    border-radius: 8px 8px 8px 8px;
 
                     display: flex;
                     align-items: center;
