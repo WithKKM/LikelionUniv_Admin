@@ -1,4 +1,4 @@
-const Notice = () => {
+const NoticePage = () => {
     return (
         <div className="pDiv">
             <h1>게시판</h1>
@@ -6,4 +6,4 @@ const Notice = () => {
     );
 };
 
-export default Notice;
+export default NoticePage;

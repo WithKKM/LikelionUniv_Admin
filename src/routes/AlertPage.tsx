@@ -1,4 +1,4 @@
-const Alert = () => {
+const AlertPage = () => {
     return (
         <div className="pDiv">
             <h1>리크루팅 알림</h1>
@@ -6,4 +6,4 @@ const Alert = () => {
     );
 };
 
-export default Alert;
+export default AlertPage;

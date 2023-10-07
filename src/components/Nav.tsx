@@ -216,7 +216,7 @@ const Text = styled(NavLink)`
     align-items: center;
     cursor: default;
     &.first {
-        margin-left: 10%;
+        margin-left: -10%;
     }
     img {
         width: 12px;

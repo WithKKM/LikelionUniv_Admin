@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
-import User from './routes/User';
-import Alert from './routes/Alert';
-import Notice from './routes/Notice';
 import Root from './routes/root';
+import UserPage from './routes/UserPage';
+import AlertPage from './routes/AlertPage';
+import NoticePage from './routes/NoticePage';
 
 const router = createBrowserRouter([
     {
@@ -11,15 +11,15 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/User',
-                element: <User />,
+                element: <UserPage />,
             },
             {
                 path: '/Alert',
-                element: <Alert />,
+                element: <AlertPage />,
             },
             {
                 path: '/Notice',
-                element: <Notice />,
+                element: <NoticePage />,
             },
         ],
     },
