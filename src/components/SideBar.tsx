@@ -1,8 +1,5 @@
 import { useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
-import { IoNotificationsSharp } from 'react-icons/io5';
-import { MdSettings } from 'react-icons/md';
-import { RiLogoutCircleRLine } from 'react-icons/ri';
 import { ClosedSideBar, Container, Content, OpenSideBar } from './SideBarStyle';
 
 export function SideBar() {
@@ -58,7 +55,7 @@ export function SideBar() {
                                     </a>
                                     <a
                                         className="MainLink"
-                                        href="/alert"
+                                        href="/Recruting"
                                         title="리크루팅 알림"
                                     >
                                         <p>리크루팅 알림</p>

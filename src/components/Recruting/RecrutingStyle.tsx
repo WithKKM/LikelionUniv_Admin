@@ -6,6 +6,20 @@ export const Container = styled.div`
     height: 4000px;
     overflow-y: auto;
     margin: 0 auto;
+    position: relative; /* absolute 포지셔닝을 사용하기 위한 상대 포지션 설정 */
+
+    button {
+        padding: 4px 8px;
+        background-color: #eaecee;
+        color: #212224;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+
+        &:hover {
+            background-color: #007bff;
+        }
+    }
 
     table {
         width: 100%;
@@ -29,21 +43,8 @@ export const Container = styled.div`
                     padding: 16px 4px;
                     border-bottom: 1px solid #ddd;
                 }
-
-                button {
-                    padding: 4px 8px;
-                    background-color: #adb3ba;
-                    color: #fff;
-                    border: none;
-                    cursor: pointer;
-
-                    &:hover {
-                        background-color: #007bff; // 원하는 파란색으로 변경하세요
-                    }
-                }
             }
 
-            /* 첫 번째 행은 배경색 없애기 */
             tr:first-child {
                 background-color: transparent;
             }

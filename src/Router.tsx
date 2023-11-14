@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Root from './routes/root';
 import UserPage from './routes/UserPage';
-import AlertPage from './routes/AlertPage';
 import NoticePage from './routes/NoticePage';
+import RecrutingPage from './routes/RecrutingPage';
 
 const router = createBrowserRouter([
     {
@@ -14,8 +14,8 @@ const router = createBrowserRouter([
                 element: <UserPage />,
             },
             {
-                path: '/Alert',
-                element: <AlertPage />,
+                path: '/Recruting',
+                element: <RecrutingPage />,
             },
             {
                 path: '/Notice',

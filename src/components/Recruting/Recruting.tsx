@@ -1,36 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from './UserStyle';
-import EditModal from './EditModal';
+import { Container } from './RecrutingStyle';
 
 export interface TableRow {
+    isChecked: boolean;
     name: string;
-    major: string;
-    semester: number;
-    part: string;
+    number: string;
     email: string;
-    role: string;
 }
 
-const User: React.FC = () => {
+const Recruting: React.FC = () => {
     const [data, setData] = useState<TableRow[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [pageNumber, setPageNumber] = useState(1);
     const [hasMore, setHasMore] = useState(true);
-    const [editIndex, setEditIndex] = useState<number | null>(null);
-
-    const [editModalData, setEditModalData] = useState<Partial<TableRow>>({});
+    const [selectAll, setSelectAll] = useState(false);
 
     const fetchMoreData = async () => {
         setIsLoading(true);
 
         // 더미 데이터를 사용
         const dummyData: TableRow[] = Array.from({ length: 100 }, (_, i) => ({
+            isChecked: false,
             name: `이름${i + 1}`,
-            major: `전공${i + 1}`,
-            semester: i + 1,
-            part: `파트${i + 1}`,
+            number: `010-1234-567${i + 1}`,
             email: `email${i + 1}@example.com`,
-            role: `역할${i + 1}`,
         }));
 
         if (pageNumber < 4) {
@@ -55,29 +48,22 @@ const User: React.FC = () => {
         }
     };
 
-    const handleDelete = (index: number) => {
+    const handleCheckboxChange = (index: number) => {
         const newData = [...data];
-        newData.splice(index, 1);
+        newData[index].isChecked = !newData[index].isChecked;
         setData(newData);
     };
 
-    const handleEdit = (index: number) => {
-        setEditIndex(index);
-        setEditModalData(data[index]);
-    };
-
-    const handleModalSave = (updatedData: Partial<TableRow>) => {
-        const newData = [...data];
-        newData[editIndex as number] = {
-            ...data[editIndex as number],
-            ...updatedData,
-        };
+    const handleSelectAll = () => {
+        const newData = data.map(item => ({ ...item, isChecked: !selectAll }));
         setData(newData);
-        setEditIndex(null);
+        setSelectAll(!selectAll);
     };
 
-    const handleModalCancel = () => {
-        setEditIndex(null);
+    const handleSendNotification = () => {
+        // Implement the logic to send notifications here
+        const selectedItems = data.filter(item => item.isChecked);
+        console.log('Selected Items:', selectedItems);
     };
 
     useEffect(() => {
@@ -97,38 +83,38 @@ const User: React.FC = () => {
     return (
         <div id="infinite-scroll-table">
             <Container>
+                <div>
+                    <button onClick={handleSelectAll}>
+                        {selectAll ? '전체 해제하기' : '전체 선택하기'}
+                    </button>
+                    <button onClick={handleSendNotification}>
+                        알림 보내기
+                    </button>
+                </div>
                 <table>
                     <thead>
                         <tr>
+                            <th>선택</th>
                             <th>이름</th>
-                            <th>전공</th>
-                            <th>기수</th>
-                            <th>파트</th>
+                            <th>번호</th>
                             <th>이메일</th>
-                            <th>역할</th>
-                            <th>수정</th>
-                            <th>삭제</th>
                         </tr>
                     </thead>
                     <tbody>
                         {data.map((item, index) => (
                             <tr key={index}>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        checked={item.isChecked}
+                                        onChange={() =>
+                                            handleCheckboxChange(index)
+                                        }
+                                    />
+                                </td>
                                 <td>{item.name}</td>
-                                <td>{item.major}</td>
-                                <td>{item.semester}</td>
-                                <td>{item.part}</td>
+                                <td>{item.number}</td>
                                 <td>{item.email}</td>
-                                <td>{item.role}</td>
-                                <td>
-                                    <button onClick={() => handleEdit(index)}>
-                                        수정
-                                    </button>
-                                </td>
-                                <td>
-                                    <button onClick={() => handleDelete(index)}>
-                                        삭제
-                                    </button>
-                                </td>
                             </tr>
                         ))}
                     </tbody>
@@ -136,16 +122,8 @@ const User: React.FC = () => {
             </Container>
 
             {isLoading && <div>로딩 중...</div>}
-
-            {editIndex !== null && (
-                <EditModal
-                    initialData={editModalData}
-                    onSave={handleModalSave}
-                    onCancel={handleModalCancel}
-                />
-            )}
         </div>
     );
 };
 
-export default User;
+export default Recruting;
