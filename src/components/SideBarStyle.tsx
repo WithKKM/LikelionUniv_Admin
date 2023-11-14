@@ -5,56 +5,40 @@ export const Container = styled.div`
     height: 100%;
     flex-direction: column;
     margin-top: 50px;
-`;
 
-export const Content = styled.div`
-    height: 100%;
-    display: flex;
-`;
-
-export const ClosedSideBar = styled.header`
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 100;
-
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-
-    nav {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+    .SideBarButton {
+        padding: 13px;
+        border: none;
+        background-color: transparent;
         margin-left: 12px;
-        > button {
-            padding: 13px;
-            border: none;
-            background-color: transparent;
 
-            &:hover {
-                cursor: pointer;
-                svg {
-                    path {
-                        color: #2694e3;
-                    }
-                }
-            }
-        }
-
-        > button svg {
+        svg {
             width: 24px;
             height: 24px;
 
             color: black;
         }
+
+        &:hover {
+            cursor: pointer;
+            svg {
+                path {
+                    color: #ff7710;
+                }
+            }
+        }
     }
+`;
+
+export const ClosedSideBar = styled.header`
+    position: fixed;
+    top: 0;
 `;
 
 export const OpenSideBar = styled.header`
     height: 100%;
     width: 100%;
+    max-width: 360px;
 
     position: fixed;
     left: 0;
@@ -65,94 +49,53 @@ export const OpenSideBar = styled.header`
     align-items: center;
 
     section {
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-        justify-content: space-between;
         width: 100%;
-
-        max-width: 360px;
         height: 100%;
 
         background: #f2f4f6;
-        border-radius: 0 12px 12px 0;
 
-        /* Links principais do app */
-        nav {
-            display: flex;
-            align-items: flex-start;
-            flex-direction: column;
-            margin-left: 12px;
+        display: flex;
+        flex-direction: column;
 
-            button {
-                padding: 13px;
-                border: none;
-                background-color: transparent;
-
+        ul {
+            .MainLink {
+                transition: background 0.3s;
+                justify-content: space-between; /* 추가된 부분 */
+                align-items: center; /* 추가된 부분 */
                 &:hover {
                     cursor: pointer;
-                    svg {
-                        path {
-                            color: #2694e3;
-                        }
-                    }
-                }
-                svg {
-                    width: 24px;
-                    height: 24px;
-
-                    color: black;
+                    background: #dcdfe3;
                 }
             }
 
-            ul {
-                width: 100%;
-                text-align: left;
+            .board_div {
+                color: #dcdfe3;
+
+                font-size: 13px;
+                font-weight: 700;
+                line-height: 13px;
+                margin-bottom: 10px;
+            }
+
+            a {
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 16px;
+
+                text-decoration-line: none;
+                color: inherit;
+
+                padding: 12px 12px;
+
                 display: flex;
-                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
 
-                .MainLink {
-                    transition: background 0.3s;
-                    &:hover {
-                        background: #dcdfe3;
-                    }
-                }
-                .board {
-                    width: 260px;
-                    height: 520px;
-                    top: 730px;
-                    left: 40px;
-                    background-color: #ffffff;
-                }
-
-                .board_div {
-                    color: #dcdfe3;
-                    font-family: Inter;
-                    font-size: 13px;
-                    font-weight: 700;
-                    line-height: 13px;
-                    margin-bottom: 10px;
-                }
-
-                a {
-                    font-family: Inter;
-                    font-size: 16px;
-                    font-weight: 700;
-                    line-height: 16px;
-                    letter-spacing: 0em;
-                    text-align: left;
-
-                    text-decoration-line: none;
-                    color: inherit;
-
-                    padding: 5px 5px;
-
-                    display: flex;
-                    align-items: center;
-
-                    max-width: 240px;
-                    margin-bottom: 12px;
-                    margin-left: 12px;
+                max-width: 240px;
+                &:hover {
+                    cursor: pointer;
+                    background: #dcdfe3;
+                    color: #ff7710;
                 }
             }
         }
