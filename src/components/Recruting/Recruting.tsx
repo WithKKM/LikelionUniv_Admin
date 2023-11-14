@@ -81,7 +81,7 @@ const Recruting: React.FC = () => {
     }, []);
 
     return (
-        <div id="infinite-scroll-table">
+        <div>
             <Container>
                 <div>
                     <button onClick={handleSelectAll}>

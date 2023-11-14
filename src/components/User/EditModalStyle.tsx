@@ -11,6 +11,18 @@ export const EditModalStyle = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    button {
+        padding: 4px 8px;
+        background-color: #adb3ba;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #ff7710;
+        }
+    }
 `;
 
 export const ModalContent = styled.div`

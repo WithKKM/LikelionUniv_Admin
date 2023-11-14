@@ -4,7 +4,7 @@ export const Container = styled.div`
     max-width: 70%;
     overflow-x: auto;
     height: 4000px;
-    overflow-y: auto;
+    overflow-y: hidden;
     margin: 0 auto;
 
     table {
@@ -38,7 +38,7 @@ export const Container = styled.div`
                     cursor: pointer;
 
                     &:hover {
-                        background-color: #007bff; // 원하는 파란색으로 변경하세요
+                        background-color: #ff7710;
                     }
                 }
             }

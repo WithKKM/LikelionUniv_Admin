@@ -4,12 +4,13 @@ export const Container = styled.div`
     max-width: 70%;
     overflow-x: auto;
     height: 4000px;
-    overflow-y: auto;
+    overflow-y: hidden;
     margin: 0 auto;
     position: relative; /* absolute 포지셔닝을 사용하기 위한 상대 포지션 설정 */
 
     button {
-        padding: 4px 8px;
+        font-weight: bold;
+        padding: 12px 16px;
         background-color: #eaecee;
         color: #212224;
         border: none;
@@ -17,7 +18,7 @@ export const Container = styled.div`
         margin: 10px;
 
         &:hover {
-            background-color: #007bff;
+            background-color: #ff7710;
         }
     }
 
