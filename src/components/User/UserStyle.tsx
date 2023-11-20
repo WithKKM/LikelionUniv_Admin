@@ -31,7 +31,7 @@ export const Container = styled.div`
                 }
 
                 button {
-                    padding: 8px 12px;
+                    padding: 4px 8px;
                     background-color: #adb3ba;
                     color: #fff;
                     border: none;

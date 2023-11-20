@@ -88,10 +88,10 @@ export function SideBar() {
                                         </div>
                                         <a href="/board1">공지사항</a>
                                         <a href="/board2">질문게시판</a>
+                                        <a href="/board1">정보공유</a>
                                         <div className="board_div">
                                             자유게시판
                                         </div>
-                                        <a href="/board1">정보공유</a>
                                         <a href="/board2">정보공유</a>
                                         <a href="/board1">팀원모집</a>
                                         <a href="/board2">프로젝트 모집</a>

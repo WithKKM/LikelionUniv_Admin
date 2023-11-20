@@ -75,6 +75,7 @@ export const OpenSideBar = styled.header`
                 font-weight: 700;
                 line-height: 13px;
                 margin-bottom: 10px;
+                margin-top: 10px;
             }
 
             a {

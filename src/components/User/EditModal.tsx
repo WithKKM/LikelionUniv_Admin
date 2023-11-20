@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { EditModalStyle } from './EditModalStyle';
 import { TableRow } from './User';
 
@@ -14,10 +14,26 @@ const EditModal: React.FC<EditModalProps> = ({
     onCancel,
 }) => {
     const [editedData, setEditedData] = useState(initialData);
+    const modalRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         setEditedData(initialData);
-    }, [initialData]);
+
+        const handleOutsideClick = (e: MouseEvent) => {
+            if (
+                modalRef.current &&
+                !modalRef.current.contains(e.target as Node)
+            ) {
+                onCancel();
+            }
+        };
+
+        document.addEventListener('mousedown', handleOutsideClick);
+
+        return () => {
+            document.removeEventListener('mousedown', handleOutsideClick);
+        };
+    }, [initialData, onCancel]);
 
     const handleSave = () => {
         onSave(editedData);
@@ -38,7 +54,7 @@ const EditModal: React.FC<EditModalProps> = ({
     };
 
     return (
-        <EditModalStyle>
+        <EditModalStyle ref={modalRef}>
             <h2>회원 정보 수정</h2>
             <label>
                 이름:

@@ -56,9 +56,13 @@ const User: React.FC = () => {
     };
 
     const handleDelete = (index: number) => {
-        const newData = [...data];
-        newData.splice(index, 1);
-        setData(newData);
+        const shouldDelete = window.confirm('정말로 삭제하시겠습니까?');
+
+        if (shouldDelete) {
+            const newData = [...data];
+            newData.splice(index, 1);
+            setData(newData);
+        }
     };
 
     const handleEdit = (index: number) => {
