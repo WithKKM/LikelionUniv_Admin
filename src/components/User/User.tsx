@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from './UserStyle';
 import EditModal from './EditModal';
+import { UserData, fetchDataFromApi } from './UserData';
 
 export interface TableRow {
     name: string;
@@ -13,6 +14,7 @@ export interface TableRow {
 
 const User: React.FC = () => {
     const [data, setData] = useState<TableRow[]>([]);
+    //const [data, setData] = useState<UserData[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [pageNumber, setPageNumber] = useState(1);
     const [hasMore, setHasMore] = useState(true);
@@ -23,6 +25,20 @@ const User: React.FC = () => {
     const fetchMoreData = async () => {
         setIsLoading(true);
 
+        /* try {
+            const apiData: UserData[] = await fetchDataFromApi();
+            if (apiData.length > 0) {
+                setData(prevData => [...prevData, ...apiData]);
+                setPageNumber(pageNumber + 1);
+            } else {
+                setHasMore(false);
+            }
+        } catch (error) {
+            console.error('Error fetching data from API:', error);
+        }
+
+        setIsLoading(false);
+    }; */
         // 더미 데이터를 사용
         const dummyData: TableRow[] = Array.from({ length: 100 }, (_, i) => ({
             name: `이름${i + 1}`,

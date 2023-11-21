@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     z-index: 2;
     height: 100%;
     flex-direction: column;

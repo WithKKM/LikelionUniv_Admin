@@ -1,33 +1,26 @@
 import { useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
-import { ClosedSideBar, Container, OpenSideBar } from './SideBarStyle';
+import * as S from './SideBarStyle';
 
 export function SideBar() {
-    // 사이드바 열기/닫기 상태를 관리하는 상태
     const [sideBar, setSideBar] = useState(false);
-
-    // 게시판 하위 목록의 표시 여부를 관리하는 상태
     const [showSubList, setShowSubList] = useState(false);
 
-    // 사이드바 열기/닫기 처리 함수
     function handleChangeSideBar() {
         setSideBar(prevState => !prevState);
-        setShowSubList(false); // 사이드바가 열릴 때 하위 목록을 닫습니다.
+        setShowSubList(false);
     }
 
-    // 게시판 하위 목록의 표시/숨김을 토글하는 함수
     function handleToggleSubList() {
         setShowSubList(prevState => !prevState);
     }
 
     return (
-        <Container>
+        <S.Wrapper>
             {!sideBar ? (
-                // 닫힌 사이드바 콘텐츠
-                <ClosedSideBar>
+                <S.ClosedSideBar>
                     <nav>
-                        {/* 사이드바 열기 버튼 */}
                         <button
                             className="SideBarButton"
                             onClick={handleChangeSideBar}
@@ -35,14 +28,12 @@ export function SideBar() {
                             <AiOutlineMenu />
                         </button>
                     </nav>
-                </ClosedSideBar>
+                </S.ClosedSideBar>
             ) : (
-                // 열린 사이드바 콘텐츠
-                <OpenSideBar>
+                <S.OpenSideBar>
                     <section>
                         <nav>
                             <span>
-                                {/* 사이드바 닫기 버튼 */}
                                 <button
                                     className="SideBarButton"
                                     onClick={handleChangeSideBar}
@@ -51,7 +42,6 @@ export function SideBar() {
                                 </button>
                             </span>
                             <ul>
-                                {/* 주요 네비게이션 링크 */}
                                 <a
                                     className="MainLink"
                                     href="/user"
@@ -82,7 +72,6 @@ export function SideBar() {
                                 </a>
                                 {showSubList && (
                                     <span className="board">
-                                        {/* 게시판 하위 링크 */}
                                         <div className="board_div">
                                             멋대 중앙
                                         </div>
@@ -109,11 +98,10 @@ export function SideBar() {
                             </ul>
                         </nav>
                     </section>
-                    {/* 사이드바를 닫기 위한 오버레이 */}
                     <aside onClick={handleChangeSideBar} />
-                </OpenSideBar>
+                </S.OpenSideBar>
             )}
-        </Container>
+        </S.Wrapper>
     );
 }
 
